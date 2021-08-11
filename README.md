@@ -28,11 +28,12 @@ Making a Kindle more PDA-like (WIP)
 1. go to kindle home, enter search term: `;debugOn` press enter to search, 
 2. Enter search term: `~ds` press enter to search (if it actually tries to search your library for this term, try `~disableScreensaver`)
 3. Enter search term: `;debugOff` press enter to search
+4. Screensaver will re-activate on reboot (or maybe like `~es` or something? Idunnolol Try it out)
 
 ## Caveats!
 1. The screen may be turned off and on without losing form entry data, but pressing HOME will close the browser, and lose info
 2. This might just be my version (KOA2), but HTML5 localStorage seems to work only temporary file or memory storage. It wipes after th browser is closed! You can currenlty only save and restore in the same session. It's possible there is a way to fix this
-3. 
+3. Without the screensaver, the device is still scanning for touch events, and therefore using more battery life than if the screensaver was on and waiting for a hardware button press. It is likely it will not last weeks in this state
 
 ## Potential future featres
 1. The browser support file view and various formats, if you go to `file:///mnt/us/` you have a file view, and can render pictures and text files as well as parse HTML files.
