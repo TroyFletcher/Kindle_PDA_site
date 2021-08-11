@@ -1,0 +1,123 @@
+<html>
+<title>My Kindle PDA</title>
+<style>
+  input.larger {
+      width: 25px;
+      height: 25px;
+  }
+</style>
+<textarea id="textarea0" rows="10"  style="width: 75%" autofocus /></textarea>
+<hr>
+<form>
+  <input id="checkbox0" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext0" size="30"><br>
+  <input id="checkbox1" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext1" size="30"><br>
+  <input id="checkbox2" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext2" size="30"><br>
+  <input id="checkbox3" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext3" size="30"><br>
+  <input id="checkbox4" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext4" size="30"><br>
+  <input id="checkbox5" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext5" size="30"><br>
+  <input id="checkbox6" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext6" size="30"><br>
+  <input id="checkbox7" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext7" size="30"><br>
+  <input id="checkbox8" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext8" size="30"><br>
+  <input id="checkbox9" type="checkbox" class="larger">&nbsp;<input type="text" id="checktext9" size="30"><br>
+</form>
+<hr>
+  <input id="savebutton" type="button" value="save" onclick="saveDataLocal();" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input id="loadbutton" type="button" value="load" onclick="loadDataLocal();" />
+LOCAL STORAGE TEST: <div id="result"></div>
+<hr>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas><br>
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+window.onload = loadDataLocal;
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
+ctx.font = "30px Arial";
+ctx.fillText("Hello World", 10, 50);
+
+var c = document.getElementById("myCanvas2");
+var ctx = c.getContext("2d");
+
+// Create gradient
+var grd = ctx.createLinearGradient(0, 0, 200, 0);
+grd.addColorStop(0, "red");
+grd.addColorStop(1, "white");
+
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10, 10, 150, 80);
+
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("box1", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+
+function saveDataLocal () {
+    localStorage.setItem("checktext0", document.getElementById("checktext0").value);
+    localStorage.setItem("checktext1", document.getElementById("checktext1").value);
+    localStorage.setItem("checktext2", document.getElementById("checktext2").value);
+    localStorage.setItem("checktext3", document.getElementById("checktext3").value);
+    localStorage.setItem("checktext4", document.getElementById("checktext4").value);
+    localStorage.setItem("checktext5", document.getElementById("checktext5").value);
+    localStorage.setItem("checktext6", document.getElementById("checktext6").value);
+    localStorage.setItem("checktext7", document.getElementById("checktext7").value);
+    localStorage.setItem("checktext8", document.getElementById("checktext8").value);
+    localStorage.setItem("checktext9", document.getElementById("checktext9").value);
+
+    // localStorage.setItem("checkbox0", document.getElementById("checkbox0").checked);
+    // localStorage.setItem("checkbox1", document.getElementById("checkbox1").checked);
+    // localStorage.setItem("checkbox2", document.getElementById("checkbox2").checked);
+    // localStorage.setItem("checkbox3", document.getElementById("checkbox3").checked);
+    // localStorage.setItem("checkbox4", document.getElementById("checkbox4").checked);
+    // localStorage.setItem("checkbox5", document.getElementById("checkbox5").checked);
+    // localStorage.setItem("checkbox6", document.getElementById("checkbox6").checked);
+    // localStorage.setItem("checkbox7", document.getElementById("checkbox7").checked);
+    // localStorage.setItem("checkbox8", document.getElementById("checkbox8").checked);
+    // localStorage.setItem("checkbox9", document.getElementById("checkbox9").checked);
+
+    localStorage.setItem("textarea0", document.getElementById('textarea0').value);
+
+    
+};
+
+function loadDataLocal () {
+    document.getElementById("checktext0").value = localStorage.getItem("checktext0");
+    document.getElementById("checktext1").value = localStorage.getItem("checktext1");
+    document.getElementById("checktext2").value = localStorage.getItem("checktext2");
+    document.getElementById("checktext3").value = localStorage.getItem("checktext3");
+    document.getElementById("checktext4").value = localStorage.getItem("checktext4");
+    document.getElementById("checktext5").value = localStorage.getItem("checktext5");
+    document.getElementById("checktext6").value = localStorage.getItem("checktext6");
+    document.getElementById("checktext7").value = localStorage.getItem("checktext7");
+    document.getElementById("checktext8").value = localStorage.getItem("checktext8");
+    document.getElementById("checktext9").value = localStorage.getItem("checktext9");
+
+    // document.getElementById("checkbox0").checked = localStorage.getItem("checkbox0");
+    // document.getElementById("checkbox1").checked = localStorage.getItem("checkbox1");
+    // document.getElementById("checkbox2").checked = localStorage.getItem("checkbox2");
+    // document.getElementById("checkbox3").checked = localStorage.getItem("checkbox3");
+    // document.getElementById("checkbox4").checked = localStorage.getItem("checkbox4");
+    // document.getElementById("checkbox5").checked = localStorage.getItem("checkbox5");
+    // document.getElementById("checkbox6").checked = localStorage.getItem("checkbox6");
+    // document.getElementById("checkbox7").checked = localStorage.getItem("checkbox7");
+    // document.getElementById("checkbox8").checked = localStorage.getItem("checkbox8");
+    // document.getElementById("checkbox9").checked = localStorage.getItem("checkbox9");
+
+    document.getElementById('textarea0').value = localStorage.getItem("textarea0");
+};
+</script> 
+</html>
